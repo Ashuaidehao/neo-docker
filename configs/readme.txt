@@ -1,0 +1,1 @@
+Put your config and wallet files here to build your docker image.
