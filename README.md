@@ -1,4 +1,4 @@
-# neo-docker
+# neo docker
 
 ## Prerequisites
 
@@ -6,7 +6,7 @@ You need install [Git](https://git-scm.com/download/) and [Docker](https://docs.
 
 ## Usage
 
-### build and run docker
+### Build and run docker
 
 
 ```sh
@@ -18,7 +18,7 @@ docker run --name=neo-cli -dit -p 10332-10333:10332-10333 neo-cli
 
 ```
 
-After start the docker container successfully ,you can use the following scripts to enter neo-cli interactive window:
+After start the docker container successfully, use the following scripts to enter neo-cli interactive window:
 
 ```sh
 
@@ -27,6 +27,9 @@ screen -r node
 
 ```
 
-## build your custom docker image
+```sh
+docker run --name=neo-cli -dit -p 10333:10333 neo-cli
+```
+## Build your custom docker image
 
-Copy your config.json or protocol.json into the "configs" folder, then build it.
+Before build docker image, you can put your own config files("config.json","protocal.json","your-wallet.json","your-wallet.db3" etc.) into the directory "configs", then they will overwrite the default file of neo-cli.
