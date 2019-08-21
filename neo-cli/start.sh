@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
 # run app in background
 screen -dmS node dotnet neo-cli.dll -r
 
 # keep container runnning 
-/bin/bash
+/bin/sh
 # sleep infinitys
