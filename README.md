@@ -2,17 +2,42 @@
 
 It already contains *ApplicationLogs*, *ImportBlocks*, *RpcSecurity*, *RpcWallet* and *SimplePolicy* plugins.
 
-## Usage
+* NEO3 Image: **ashuaidehao/n3-cli**
+* NEO2 Image: **ashuaidehao/neo-cli**
+
+----
+## N3 Usage
+
 ### Open RpcServer
 ```sh
-docker run --name=neo-cli -dit -p 10332-10334:10332-10334 ashuaidehao/neo-cli
+docker run --name=neo-cli -dit -p 10332-10334:10332-10334 ashuaidehao/n3-cli
 ```
 
 ### Open Node Only
 ```sh
-docker run --name=neo-cli -dit -p 10333:10333 ashuaidehao/neo-cli
+docker run --name=neo-cli -dit -p 10333:10333 ashuaidehao/n3-cli
 ```
 
+### Connect to test net
+You need prepare test net config files(config.testnet.json) first, then use :
+```sh
+docker run -dit --name neo-cli -p 20332-20334:20332-20334 -v {Physical Absolute Directory}/config.testnet.json:/neo-cli/config.json ashuaidehao/n3-cli
+```
+
+
+### Install Plugins
+If you want to install other plugins, use these scripts after you start this container:
+```sh
+docker exec -it neo-cli /bin/bash
+screen -r node
+neo>install {PluginName}
+```
+Then restart this container.
+
+
+----
+
+## NEO2 Usage
 ### Connect to test net
 You need prepare test net config files(config.testnet.json and protocol.testnet.json) first, then use :
 ```sh
@@ -25,14 +50,7 @@ If you want to use *ImportBlocks* to accelerate block chain sync (https://sync
 docker run -dit --name neo-cli -p 10332-10333:10332-10333 -v {Physical Absolute Directory}/chain.acc:/neo-cli/chain.acc ashuaidehao/neo-cli
 ```
 
-### Install Plugins
-If you want to install other plugins, use these scripts after you start this container:
-```sh
-docker exec -it neo-cli /bin/bash
-screen -r node
-neo>install {PluginName}
-```
-Then restart this container.
+----
 
 ## Build Your Own Docker Image
 
@@ -44,8 +62,8 @@ You need install [Git](https://git-scm.com/download/) and [Docker](https://docs.
 ```sh
 git clone https://github.com/Ashuaidehao/neo-docker.git
 cd neo-docker
-docker build -t neo-cli .
-docker run --name=neo-cli -dit -p 10332-10334:10332-10334 neo-cli
+docker build -t n3-cli .
+docker run --name=neo-cli -dit -p 10332-10334:10332-10334 n3-cli
 ```
 
 After start the docker container successfully, use the following scripts to enter neo-cli interactive window:
