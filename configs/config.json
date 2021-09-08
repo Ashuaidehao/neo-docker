@@ -1,4 +1,4 @@
-{
+﻿{
   "ApplicationConfiguration": {
     "Paths": {
       "Chain": "Chain_{0}",
@@ -12,7 +12,9 @@
       "BindAddress": "0.0.0.0",
       "Port": 10332,
       "SslCert": "",
-      "SslCertPassword": ""
+      "SslCertPassword": "",
+      "ExtraGasInvoke": "0",
+      "MaxConcurrentConnections": "10"
     },
     "UnlockWallet": {
       "Path": "",

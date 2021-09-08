@@ -4,5 +4,5 @@
 screen -dmS node dotnet neo-cli.dll -r
 
 # keep container runnning 
-/bin/sh
+tail -f /dev/null
 # sleep infinitys
